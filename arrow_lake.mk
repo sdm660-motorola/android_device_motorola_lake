@@ -11,12 +11,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # Inherit from lake device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common stuff.
+$(call inherit-product, vendor/arrow/config/common.mk)
 
 # Device identifiers
 PRODUCT_DEVICE := lake
-PRODUCT_NAME := lineage_lake
+PRODUCT_NAME := arrow_lake
 PRODUCT_BRAND := Motorola
 PRODUCT_MODEL := Moto G7 Plus
 PRODUCT_MANUFACTURER := Motorola
