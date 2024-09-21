@@ -1,4 +1,4 @@
-Copyright 2019 - The LineageOS Project
+Copyright (C) 2024 Paranoid Android
 
 Device configuration for Motorola G7 Plus (lake)
 ==================================
