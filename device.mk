@@ -37,9 +37,35 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libtinycompress
 
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    ro.qc.sdk.audio.fluencetype=none
+
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.audio.calfile0=/vendor/etc/acdbdata/Bluetooth_cal.acdb \
+    persist.vendor.audio.calfile1=/vendor/etc/acdbdata/General_cal.acdb \
+    persist.vendor.audio.calfile2=/vendor/etc/acdbdata/Global_cal.acdb \
+    persist.vendor.audio.calfile3=/vendor/etc/acdbdata/Handset_cal.acdb \
+    persist.vendor.audio.calfile4=/vendor/etc/acdbdata/Hdmi_cal.acdb \
+    persist.vendor.audio.calfile5=/vendor/etc/acdbdata/Headset_cal.acdb \
+    persist.vendor.audio.calfile6=/vendor/etc/acdbdata/Speaker_cal.acdb \
+    persist.vendor.audio.default.spkrdc=9929 \
+    persist.vendor.audio.default.rcvrdc=11243 \
+    vendor.audio.feature.fm.enable=true \
+    vendor.audio.feature.incall_music.enable=false \
+    vendor.audio.offload.gapless.enabled=false \
+    vendor.voice.path.for.pcm.voip=false
+
+# Bluetooth
+PRODUCT_VENDOR_PROPERTIES += \
+    bluetooth.device.default_name=Moto G7 Plus
+
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2160
 TARGET_SCREEN_WIDTH := 1080
+
+# Display
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.hardware.vulkan=sdm660
 
 # Dex-pre-opt exclusions
 $(call add-product-dex-preopt-module-config,MotoSignatureApp,disable)
@@ -49,15 +75,31 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/uinput-egis.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-egis.kl \
     $(LOCAL_PATH)/configs/idc/uinput-egis.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-egis.idc
 
+# Fluence
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.audio.dualmic.config=endfire \
+    persist.vendor.audio.fluence.audiorec=false \
+    persist.vendor.audio.fluence.speaker=false \
+    persist.vendor.audio.fluence.voicecall=false \
+    persist.vendor.audio.fluence.voicecomm=true \
+    persist.vendor.audio.fluence.voicerec=false \
+    ro.vendor.audio.sdk.fluencetype=none
+
 # FM
 PRODUCT_PACKAGES += \
     FM2 \
     libqcomfm_jni \
     qcom.fmradio
 
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.vendor.fm.use_audio_session=true
+
 # Init
 PRODUCT_PACKAGES += \
     init.lake.rc
+
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.hardware.keystore_desede=true
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -78,6 +120,25 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/sensor_def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/sensor_def_qcomdev.conf \
     $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
+
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.hardware.sensors=lake \
+    ro.vendor.sensors.maghalcal=true \
+    ro.vendor.sensors.amd=false \
+    ro.vendor.sensors.pmd=false \
+    ro.vendor.sensors.rmd=false \
+    ro.vendor.sensors.facing=false \
+    ro.vendor.sensors.scrn_ortn=false \
+    ro.vendor.sensors.pedometer=false \
+    ro.vendor.sensors.dev_ori=true \
+    ro.vendor.sensors.sta_detect=true \
+    ro.vendor.sensors.mot_detect=true \
+    ro.vendor.sensors.cmc=false \
+    ro.vendor.sdk.sensors.gestures=false
+
+# SOC
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.soc.model=SDM660
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
